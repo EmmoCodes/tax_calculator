@@ -1,0 +1,22 @@
+@use './generals';
+@use './mixins';
+@use './resets';
+@use './variables';
+
+main {
+  max-width: 35%;
+  padding-top: 100px;
+  margin: 0 auto;
+}
+
+section {
+  border: solid black 2px;
+  display: flex;
+  flex-direction: column;
+
+  div {
+    background-color: rgba(211, 211, 211, 0.435);
+    min-height: 8vh;
+    padding: 2%;
+  }
+}
