@@ -115,6 +115,7 @@ const nineteenPercent = document.body.querySelector('#nineteen-percent')
 const sevenPercent = document.body.querySelector('#seven-percent')
 const headlineType = document.body.querySelector('.js-headline')
 const inputAmount = document.body.querySelector('#amount')
+const errorMessage = document.body.querySelector('.error-messages')
 const outputOne = document.body.querySelector('.result-one')
 const outputTwoHeadline = document.body.querySelector('.result-two-headline')
 const outputTwo = document.body.querySelector('.result-two')
@@ -137,7 +138,11 @@ inputForm.addEventListener('submit', event => {
   let taxResult
 
   if (!/^\d*(?:[\.,])?\d{0,2}$/.test(inputAmountValue)) {
+    errorMessage.textContent = 'Bitte gültigen Wert eintragen!'
+    errorMessage.style.color = 'red'
     return
+  } else {
+    errorMessage.textContent = ''
   }
 
   if (nineteenPercent.checked) {
@@ -152,8 +157,8 @@ inputForm.addEventListener('submit', event => {
     taxResult = inputAmountValue / taxRate
   }
 
-  outputOne.textContent = `${Math.abs(inputAmountValue - taxResult).toFixed(2)}€`
-  outputTwo.textContent = `${taxResult.toFixed(2)}€`
+  outputOne.textContent = `${Math.abs(inputAmountValue - taxResult).toFixed(2)}€`.replaceAll('.', ',')
+  outputTwo.textContent = `${taxResult.toFixed(2)}€`.replaceAll('.', ',')
 })
 
 BruttoToNetto.addEventListener('click', changeHeadline)
