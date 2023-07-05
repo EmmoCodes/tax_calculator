@@ -106,11 +106,6 @@ console.log(Number(num9))
 console.clear()
 
 // ?Mehrwertsteuer-Rechner
-/*
-- radios oben funktionen +- ( value von 19% oder 7% ) ==> ifelse
-- radios % 2 verschiedene feste werte 19% 7% ==> ifelse
-- inputfeld value auslesen und mit den parametern oben berechnen
-*/
 
 const inputForm = document.body.querySelector('.input-form')
 const NettoToBrutto = document.body.querySelector('#netto-brutto')
@@ -155,6 +150,6 @@ inputForm.addEventListener('submit', event => {
     taxResult = inputAmountValue / taxRate
   }
 
-  outputOne.textContent = Math.abs(inputAmountValue - taxResult).toFixed(2)
-  outputTwo.textContent = taxResult.toFixed(2)
+  outputOne.textContent = `${Math.abs(inputAmountValue - taxResult).toFixed(2)}€`
+  outputTwo.textContent = `${taxResult.toFixed(2)}€`
 })
