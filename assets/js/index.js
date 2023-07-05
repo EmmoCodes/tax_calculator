@@ -116,6 +116,7 @@ const sevenPercent = document.body.querySelector('#seven-percent')
 const headlineType = document.body.querySelector('.js-headline')
 const inputAmount = document.body.querySelector('#amount')
 const errorMessage = document.body.querySelector('.error-messages')
+const outputContainer = document.body.querySelector('.result-container')
 const outputOne = document.body.querySelector('.result-one')
 const outputTwoHeadline = document.body.querySelector('.result-two-headline')
 const outputTwo = document.body.querySelector('.result-two')
@@ -136,6 +137,8 @@ inputForm.addEventListener('submit', event => {
   const inputAmountValue = inputAmount.value.replaceAll(',', '.')
   let taxRate
   let taxResult
+
+  outputContainer.classList.remove('hidden')
 
   if (!/^\d*(?:[\.,])?\d{0,2}$/.test(inputAmountValue)) {
     errorMessage.textContent = 'Bitte gültigen Wert eintragen!'

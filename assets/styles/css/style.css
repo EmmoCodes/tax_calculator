@@ -93,4 +93,12 @@ section div {
   padding: 2%;
 }
 
+.result-container {
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */
