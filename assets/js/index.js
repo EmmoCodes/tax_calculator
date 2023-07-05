@@ -107,6 +107,7 @@ console.clear()
 
 // ?Mehrwertsteuer-Rechner
 
+// const regex = createRegExp(/^\d*(?:[\.,])?\d{0,2}$/)
 const inputForm = document.body.querySelector('.input-form')
 const NettoToBrutto = document.body.querySelector('#netto-brutto')
 const BruttoToNetto = document.body.querySelector('#brutto-netto')
@@ -128,15 +129,16 @@ const changeHeadline = () => {
   }
 }
 
-BruttoToNetto.addEventListener('click', changeHeadline)
-NettoToBrutto.addEventListener('click', changeHeadline)
-
 inputForm.addEventListener('submit', event => {
   event.preventDefault()
 
-  const inputAmountValue = inputAmount.value
+  const inputAmountValue = inputAmount.value.replaceAll(',', '.')
   let taxRate
   let taxResult
+
+  if (!/^\d*(?:[\.,])?\d{0,2}$/.test(inputAmountValue)) {
+    return
+  }
 
   if (nineteenPercent.checked) {
     taxRate = 1.19
@@ -153,3 +155,6 @@ inputForm.addEventListener('submit', event => {
   outputOne.textContent = `${Math.abs(inputAmountValue - taxResult).toFixed(2)}€`
   outputTwo.textContent = `${taxResult.toFixed(2)}€`
 })
+
+BruttoToNetto.addEventListener('click', changeHeadline)
+NettoToBrutto.addEventListener('click', changeHeadline)
