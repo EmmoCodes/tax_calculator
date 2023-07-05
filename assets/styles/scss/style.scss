@@ -16,6 +16,8 @@ main {
 h2,
 h3 {
   font-size: 1rem;
+}
+h2 {
   padding-left: 15px;
 }
 
@@ -27,8 +29,9 @@ section {
 
   div {
     background-color: rgba(12, 85, 137, 0.435);
-    min-height: 8vh;
+    min-height: 6vh;
     padding: 2%;
+    padding-left: 15px;
   }
 }
 
@@ -49,4 +52,10 @@ button {
 
 .hidden {
   display: none;
+}
+
+#amount {
+  padding-left: 15px;
+  border: none;
+  border-radius: 5px;
 }
